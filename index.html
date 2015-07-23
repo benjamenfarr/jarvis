@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+
+<head>
+<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+
+<body>
+<p>Please enter password here:</p>
+
+<p><input type="text" id="txtPassword"></p>
+
+<p><input type="button" value="Enter homepage" id="btSubmit"/></p>
+
+<script>
+$(function(){
+$("#btSubmit").click(function(){
+var p=$("#txtPassword").val();
+if(p.length==0){
+alert("Please input password !");
+return;
+}
+else{
+if(p!='x2n6j0tc'){
+alert('Wrong password !');
+return;
+}
+}
+window.location.href="home.html";
+})
+})
+</script>
+</body>
+</html>
+
+
+
