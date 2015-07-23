@@ -38,21 +38,23 @@
             recognition.continuous = true;         // keep processing input until stopped
             recognition.interimResults = true;     // show interim results
             recognition.lang = 'en-US';           // specify the language
+recognition.start();
             recognition.onstart = function() {
                 recognizing = true;
-                $('#instructions').html('Speak slowly and clearly');
-                $('#start_button').html('Click to Stop');
- $("#final_span").typed("reset");
+               // $('#instructions').html('Speak slowly and clearly');
+                //$('#start_button').html('Click to Stop');
+// $("#final_span").typed("reset");
             };
             recognition.onerror = function(event) {
                 console.log("There was a recognition error...");
             };
             recognition.onend = function() {
                 recognizing = false;
-                $('#instructions').html('&nbsp;');
+               // $('#instructions').html('&nbsp;');
             };
 
             recognition.onresult = function(event) {
+       finalTranscript = '';
                 var interimTranscript = '';
   if (typeof(event.results) == 'undefined') {
       recognition.onend = null;
@@ -91,9 +93,9 @@
             loopCount: false
       });
 */
-                    recognition.stop();
-                    $('#start_button').html('Click to Start Again');
-                    recognizing = false;
+                    //recognition.stop();
+                   // $('#start_button').html('Click to Start Again');
+                    recognizing = false;                    
                 }
             };
             $("#start_button").click(function(e) 
@@ -101,7 +103,7 @@
                 e.preventDefault();
                 if (recognizing) {
                     recognition.stop();
-                    $('#start_button').html('Click to Start Again');
+                    //$('#start_button').html('Click to Start Again');
                     //recognizing = false;
                 } 
                    else
@@ -109,8 +111,8 @@
                     finalTranscript = '';
                     // Request access to the User's microphone and Start recognizing voice input
                     recognition.start();
-                    $('#instructions').html('Allow the browser to use your Microphone');
-                    $('#start_button').html('waiting');
+                  //  $('#instructions').html('Allow the browser to use your Microphone');
+                   // $('#start_button').html('waiting');
                     $('#final_span').html('&nbsp;');
 $('#interim_span').html('&nbsp;');
 
